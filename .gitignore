@@ -1,0 +1,39 @@
+# modules
+node_modules
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# packages
+*.lock
+*-lock
+
+# local files
+*-local
+*-local.*
+*.local
+*.local.*
+
+# misc
+.DS_Store
+*.pem
+
+# logs
+*.logs
+*.log
+
+# vercel
+.vercel
+.vscode/
+.idea/
+
+# yarn
+/.yarn
+.yarn/
