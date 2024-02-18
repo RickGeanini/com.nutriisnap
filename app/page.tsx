@@ -1,8 +1,15 @@
 import type { NextPage } from 'next';
 
-// index
+// COMPONENTS
+import { Button } from '@/components/ui/button';
+
+// INDEX PAGE
 const IndexPage: NextPage = () => {
     /* Render */
-    return <></>;
+    return (
+        <>
+            <Button variant="outline">Click me</Button>
+        </>
+    );
 };
 export default IndexPage;
