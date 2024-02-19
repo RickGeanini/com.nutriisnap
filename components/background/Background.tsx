@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from './Background.module.css';
 
 // IMAGES
-import background from 'public/images/lunch_food.jpg';
+import background from 'public/images/background.jpg';
 
 // BACKGROUND IMAGE
 const BackgroundComponent = () => {

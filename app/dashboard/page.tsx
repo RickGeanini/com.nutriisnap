@@ -22,7 +22,7 @@ const DashboardPage = () => {
                             <Image
                                 alt="Nome prato"
                                 height={200}
-                                src="/images/lunch_food.jpg"
+                                src="/images/background.jpg"
                                 width={200}
                             />
                             <p>Kcal</p>
