@@ -1,11 +1,20 @@
 import Image from 'next/image';
 
+// COMPONENTS
+import GameComponent from '@/components/game/Game';
+
+// DASHBOARD PAGE
 const DashboardPage = () => {
     /* Render */
     return (
         <>
             <div>
-                <h1>Gameficacao</h1>
+                <GameComponent
+                    isLoading={false}
+                    healthy_meals={3}
+                    total_meals={10}
+                    unhealthy_meals={7}
+                />
                 <ul>
                     <li>
                         <div>
