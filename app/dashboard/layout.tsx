@@ -6,7 +6,7 @@ const DashboardLayout = ({ children }: IChildrenProps) => {
     return (
         <>
             <NavigationMenuComponent />
-            {children}
+            <div>{children}</div>
         </>
     );
 };
