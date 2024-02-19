@@ -8,7 +8,7 @@ const IndexPage: NextPage = () => {
     /* Render */
     return (
         <>
-            <Button variant="outline">Click me</Button>
+            <Button>Click me</Button>
         </>
     );
 };
