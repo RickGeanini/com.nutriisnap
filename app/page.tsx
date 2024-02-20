@@ -97,7 +97,7 @@ const IndexPage: NextPage = () => {
                         </p>
                         <p className="font-bold mt-6">Sua saúde merece o melhor!</p>
                         <div className="flex flex-row items-center mt-8 ml-[-11px]">
-                            <Link href="/dashboard">
+                            <Link href="https://drive.google.com/file/d/1IjA8xWHcW-2kRSZKLcAgJcMfLEIIg129/view">
                                 <Image src="/images/gp.png" alt="name" width={200} height={200} />
                             </Link>
                             <StarComponent />
