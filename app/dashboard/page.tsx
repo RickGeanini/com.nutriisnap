@@ -1,7 +1,6 @@
-import Image from 'next/image';
-
 // COMPONENTS
 import GameComponent from '@/components/game/Game';
+import MealsListComponent from '@/components/meals-list/MealsList';
 
 // DASHBOARD PAGE
 const DashboardPage = () => {
@@ -15,20 +14,7 @@ const DashboardPage = () => {
                     total_meals={10}
                     unhealthy_meals={7}
                 />
-                <ul>
-                    <li>
-                        <div>
-                            <p>Nome Prato</p>
-                            <Image
-                                alt="Nome prato"
-                                height={200}
-                                src="/images/background.jpg"
-                                width={200}
-                            />
-                            <p>Kcal</p>
-                        </div>
-                    </li>
-                </ul>
+                <MealsListComponent />
             </div>
         </>
     );
