@@ -28,16 +28,18 @@ const MealsListComponent = () => {
                                 className="rounded-ss-lg rounded-se-lg bg-muted"
                             >
                                 <Image
-                                    alt="Photo by Drew Beamer"
+                                    alt={meal.name}
                                     className="rounded-ss-lg rounded-se-lg object-cover"
                                     fill
                                     src={meal.image}
                                 />
                             </AspectRatio>
                         </CardHeader>
-                        <CardContent className="p-1 pl-2">
-                            <p className="text-xl font-semibold">{meal.name}</p>
-                            <small>{meal.calories} Kcal</small>
+                        <CardContent className="p-4 flex flex-col gap-3 bg-slate-50 rounded-es-lg rounded-ee-lg">
+                            <p className="text-xl font-semibold text-wrap text-primary">
+                                {meal.name}
+                            </p>
+                            <small className="text-md text-secondary">{meal.calories} Kcal</small>
                         </CardContent>
                     </Card>
                 </DrawerTrigger>
