@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 
 // COMPONENTS
 import BackgroundComponent from '@/components/background/Background';
+import StarComponent from '@/components/stars/Stars';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -18,7 +19,6 @@ import {
 
 // STYLES
 import styles from './../components/background/Background.module.css';
-import StarComponent from '@/components/stars/Stars';
 
 // INDEX PAGE
 const IndexPage: NextPage = () => {
