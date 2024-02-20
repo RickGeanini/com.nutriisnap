@@ -67,7 +67,7 @@ const IndexPage: NextPage = () => {
                             </form>
                         </CardContent>
                         <CardFooter className="flex justify-between">
-                            <Button asChild className="text-1xl mt-4">
+                            <Button className="text-1xl mt-4">
                                 <Link href="/dashboard">Entrar</Link>
                             </Button>
                         </CardFooter>
@@ -99,6 +99,17 @@ const IndexPage: NextPage = () => {
                         <div className="flex flex-row items-center mt-8 ml-[-11px]">
                             <Link href="https://drive.google.com/file/d/1IjA8xWHcW-2kRSZKLcAgJcMfLEIIg129/view">
                                 <Image src="/images/gp.png" alt="name" width={200} height={200} />
+                            </Link>
+                            <Link
+                                href="https://drive.google.com/file/d/1IjA8xWHcW-2kRSZKLcAgJcMfLEIIg129/view"
+                                className="mr-4"
+                            >
+                                <Image
+                                    src="/images/applestore.png"
+                                    alt="name"
+                                    width={175}
+                                    height={180}
+                                />
                             </Link>
                             <StarComponent />
                         </div>
