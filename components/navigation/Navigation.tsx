@@ -1,9 +1,10 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import { cn } from '@/lib/utils';
+// COMPONENTS
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -13,47 +14,45 @@ import {
     NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 
-const components: { title: string; href: string; description: string }[] = [
-    {
-        title: 'Alert Dialog',
-        href: '/docs/primitives/alert-dialog',
-        description:
-            'A modal dialog that interrupts the user with important content and expects a response.',
-    },
-    {
-        title: 'Hover Card',
-        href: '/docs/primitives/hover-card',
-        description: 'For sighted users to preview content available behind a link.',
-    },
-    {
-        title: 'Progress',
-        href: '/docs/primitives/progress',
-        description:
-            'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
-    },
-    {
-        title: 'Scroll-area',
-        href: '/docs/primitives/scroll-area',
-        description: 'Visually or semantically separates content.',
-    },
-    {
-        title: 'Tabs',
-        href: '/docs/primitives/tabs',
-        description:
-            'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
-    },
-    {
-        title: 'Tooltip',
-        href: '/docs/primitives/tooltip',
-        description:
-            'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
-    },
-];
+// UTILS
+import { cn } from '@/lib/utils';
 
+// NAVIGATION MENU COMPONENT
 const NavigationMenuComponent = () => {
+    /* Vars */
+    const components: { title: string; href: string; description: string }[] = [
+        {
+            title: 'Tailwind',
+            href: '/docs/primitives/alert-dialog',
+            description:
+                'A modal dialog that interrupts the user with important content and expects a response.',
+        },
+        {
+            title: 'React 18',
+            href: '/docs/primitives/hover-card',
+            description: 'For sighted users to preview content available behind a link.',
+        },
+        {
+            title: 'Next 14',
+            href: '/docs/primitives/progress',
+            description:
+                'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
+        },
+        {
+            title: 'Ui Shadcn',
+            href: '/docs/primitives/scroll-area',
+            description: 'Visually or semantically separates content.',
+        },
+    ];
+
+    /* Render */
     return (
-        <div className="flex items-center justify-between">
-            <NavigationMenu>
+        <div className="flex items-center justify-between bg-[#F1F6F2]">
+            <div className="flex pl-[2rem] pt-[0.5rem] pb-[0.5rem] invisible lg:visible">
+                <Image src="/images/logo.png" alt="icone" width={45} height={45} loading="lazy" />
+                <Image src="/images/name.svg" alt="name" width={100} height={100} loading="lazy" />
+            </div>
+            <NavigationMenu className="mr-1">
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
@@ -65,7 +64,6 @@ const NavigationMenuComponent = () => {
                                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                             href="/"
                                         >
-                                            {/* <Icons.logo className="h-6 w-6" /> */}
                                             <div className="h-6 w-6">ICONE</div>
                                             <div className="mb-2 mt-4 text-lg font-medium">
                                                 shadcn/ui
@@ -90,7 +88,9 @@ const NavigationMenuComponent = () => {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                        <NavigationMenuTrigger className="hover:bg-primary">
+                            Frontend
+                        </NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                                 {components.map(component => (
@@ -106,12 +106,14 @@ const NavigationMenuComponent = () => {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                 </NavigationMenuList>
+                <div className="invisible lg:visible">
+                    <Link href="/" legacyBehavior passHref>
+                        <p className="cursor-pointer text-sm font-medium text-slate-800 group-hover:text-slate-500 mr-6">
+                            Logout
+                        </p>
+                    </Link>
+                </div>
             </NavigationMenu>
-            <Link href="/" legacyBehavior passHref>
-                <p className="text-sm font-medium text-slate-800 group-hover:text-slate-500 mr-6">
-                    Logout
-                </p>
-            </Link>
         </div>
     );
 };
