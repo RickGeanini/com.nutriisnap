@@ -30,7 +30,7 @@ const NavigationMenuComponent = () => {
         {
             title: 'Ui Shadcn',
             href: 'https://ui.shadcn.com/',
-            description: 'Biblioteca UI',
+            description: 'Biblioteca UI.',
         },
         {
             title: 'React 18',
@@ -53,12 +53,12 @@ const NavigationMenuComponent = () => {
         {
             title: 'Python 3.10',
             href: 'https://www.python.org/',
-            description: 'Framework CSS modular e utilitário.',
+            description: 'Versão atualizada da linguagem Python.',
         },
         {
             title: 'FastApi',
             href: 'https://openai.com/',
-            description: 'Framework Python rápido para APIs',
+            description: 'Framework Python rápido para APIs.',
         },
         {
             title: 'MongoDB',
