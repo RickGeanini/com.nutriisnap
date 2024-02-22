@@ -104,7 +104,7 @@ const NavigationMenuComponent = () => {
     return (
         <div className="flex items-center justify-between bg-[#F1F6F2]">
             <NavigationMenu className="mr-1">
-                <div className="flex pl-[2rem] pt-[0.5rem] pb-[0.5rem] invisible lg:visible">
+                <div className="flex pl-[2rem] pt-[0.5rem] pb-[0.5rem] invisible lg:visible mr-4">
                     <Image
                         src="/images/logo.png"
                         alt="icone"
@@ -115,7 +115,7 @@ const NavigationMenuComponent = () => {
                 </div>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className="hover:bg-primary">
+                        <NavigationMenuTrigger className="hover:bg-background active:bg-background focus:bg-background">
                             CaloriCore
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
@@ -133,7 +133,7 @@ const NavigationMenuComponent = () => {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className="hover:bg-primary">
+                        <NavigationMenuTrigger className="hover:bg-background active:bg-background focus:bg-background">
                             NutriVista
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
@@ -151,7 +151,7 @@ const NavigationMenuComponent = () => {
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger className="hover:bg-primary">
+                        <NavigationMenuTrigger className="hover:bg-background active:bg-background focus:bg-background">
                             SaborScan
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
@@ -170,7 +170,7 @@ const NavigationMenuComponent = () => {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            <div className="invisible lg:visible mr-8">
+            <div className="invisible lg:visible mr-8 cursor-pointer">
                 <Link href="/" legacyBehavior passHref>
                     <LogOut />
                 </Link>
