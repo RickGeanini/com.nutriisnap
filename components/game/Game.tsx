@@ -1,3 +1,5 @@
+import { Citrus, Pizza, Utensils } from 'lucide-react';
+
 // COMPONENTS
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -19,14 +21,17 @@ const GameComponent = ({
 }: IGameComponentProps) => {
     /* Render */
     return (
-        <div className="flex flex-wrap gap-8 p-4">
+        <div className="container invisible lg:visible flex flex-wrap gap-8 p-4 ml-[10rem] mr-[10rem]">
             <Card className="shadow-sm bg-white rounded-lg flex-grow">
                 <CardHeader>
                     <CardTitle>
                         {isLoading ? (
-                            <Skeleton className="bg-primary h-6 w-[190px]" />
+                            <Skeleton className="bg-primary h-6 w-[120px]" />
                         ) : (
-                            'Total de refeições'
+                            <div className="flex items-center">
+                                <Utensils />
+                                <div className="ml-4">Total de refeições:</div>
+                            </div>
                         )}
                     </CardTitle>
                     <CardDescription className="text-2xl">
@@ -40,7 +45,10 @@ const GameComponent = ({
                         {isLoading ? (
                             <Skeleton className="bg-primary h-6 w-[190px]" />
                         ) : (
-                            'Refeições saudáveis'
+                            <div className="flex items-center">
+                                <Citrus />
+                                <div className="ml-4">Saudável</div>
+                            </div>
                         )}
                     </CardTitle>
                     <CardDescription className="text-2xl">
@@ -55,7 +63,10 @@ const GameComponent = ({
                         {isLoading ? (
                             <Skeleton className="bg-primary h-6 w-[250px]" />
                         ) : (
-                            'Refeições não saudáveis'
+                            <div className="flex items-center">
+                                <Pizza />
+                                <div className="ml-4">Não saudável</div>
+                            </div>
                         )}
                     </CardTitle>
                     <CardDescription className="text-2xl">
