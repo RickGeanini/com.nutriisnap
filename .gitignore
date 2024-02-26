@@ -37,3 +37,5 @@ node_modules
 # yarn
 /.yarn
 .yarn/
+
+.env
