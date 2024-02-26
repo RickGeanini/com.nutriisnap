@@ -25,8 +25,6 @@ async function getMealsList(): Promise<IMeal[] | undefined> {
 export default async function MealsListComponent() {
     const meals = await getMealsList();
 
-    console.log({ meals });
-
     /* Utils */
     const renderedMeals = (meals ?? []).map((meal, index: number) => {
         return (
