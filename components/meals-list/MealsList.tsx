@@ -4,13 +4,10 @@ import Image from 'next/image';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Drawer, DrawerTrigger } from '@/components/ui/drawer';
-import MealDetailsComponent from '@/components/meals-list/details/MealDetails';
+// import MealDetailsComponent from '@/components/meals-list/details/MealDetails';
 
 // INTERFACES
 import { IMeal } from '@/interfaces/meals';
-
-// UTILS
-import { generateRandomMealItem } from '@/lib/mock';
 
 async function getMealsList(): Promise<IMeal[] | undefined> {
     const res = await fetch(

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 // COMPONENTS
-import { DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle } from '@/components/ui/drawer';
+import { DrawerContent } from '@/components/ui/drawer';
 
 // INTERFACES
 import { IMeal } from '@/interfaces/meals';
@@ -41,8 +41,10 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                 />
 
                 <div className="p-4 flex flex-col gap-2">
-                    <h1 className="text-2xl text-primary font-semibold">{meal.name}</h1>
-                    <small className="text-1xl text-primary">{formateToBr(meal.create_date)}</small>
+                    <h1 className="text-2xl text-primary font-semibold">
+                        {meal.name ?? meal.file_name}
+                    </h1>
+                    <small className="text-1xl text-primary">{formateToBr(meal.created_at)}</small>
                     <h3 className="text-1xl text-primary">Ingredientes</h3>
                     {renderedIngredients}
                 </div>
