@@ -1,11 +1,13 @@
 import Image from 'next/image';
 
 // COMPONENTS
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle } from '@/components/ui/drawer';
 
 // INTERFACES
 import { IMeal } from '@/interfaces/meals';
+
+// UTILS
+import { formateToBr } from '@/lib/date';
 
 // MEAL DETAILS COMPONENT UTILS
 interface IMealDetailsComponentProps {
@@ -16,9 +18,9 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
     /* Utils */
     const renderedIngredients = (
         <ul className="list-disc pl-8">
-            {meal.ingredients.map(ingredient => {
+            {meal.ingredients.map((ingredient, key) => {
                 return (
-                    <li className="text-sm text-primary" key={ingredient}>
+                    <li className="text-sm text-primary" key={key}>
                         {ingredient}
                     </li>
                 );
@@ -30,17 +32,18 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
     return (
         <DrawerContent className="bg-white">
             <div className="flex gap-4">
-                {/* <AspectRatio ratio={16 / 9} className="rounded-ss-lg rounded-se-lg bg-muted w-96"> */}
-                {/* <Image
+                <Image
                     alt={meal.name}
-                    className="rounded-ss-lg rounded-se-lg object-cover size-4"
-                    fill
+                    className="rounded-lg m-4 object-cover"
+                    height={160}
                     src={meal.image}
-                /> */}
-                {/* </AspectRatio> */}
-                <div className="p-4 flex flex-col gap-4">
-                    <p className="text-2xl text-primary font-semibold">{meal.name}</p>
-                    <p className="text-2xl text-primary font-semibold">{meal.create_date}</p>
+                    width={420}
+                />
+
+                <div className="p-4 flex flex-col gap-2">
+                    <h1 className="text-2xl text-primary font-semibold">{meal.name}</h1>
+                    <small className="text-1xl text-primary">{formateToBr(meal.create_date)}</small>
+                    <h3 className="text-1xl text-primary">Ingredientes</h3>
                     {renderedIngredients}
                 </div>
             </div>
