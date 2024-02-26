@@ -1,8 +1,11 @@
 export interface IMeal {
     calories: number;
-    create_date: string;
+    created_at: string;
+    deleted_at?: null | string;
+    file_name: string;
     image: string;
     ingredients: string[];
     is_healthy: boolean;
     name: string;
+    updated_at: string;
 }

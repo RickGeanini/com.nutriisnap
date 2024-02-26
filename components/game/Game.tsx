@@ -4,6 +4,11 @@ import { Citrus, Pizza, Utensils } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
+async function getWeeklyReport() {
+    const res = await fetch(`${process.env.API_URL}/get_weekly_report`);
+    return res.json();
+}
+
 // GAME COMPONENT UTILS
 interface IGameComponentProps {
     healthy_meals: number;
@@ -13,15 +18,17 @@ interface IGameComponentProps {
 }
 
 // GAME COMPONENT
-const GameComponent = ({
+export async function GameComponent({
     healthy_meals,
     isLoading,
     total_meals,
     unhealthy_meals,
-}: IGameComponentProps) => {
+}: IGameComponentProps) {
+    const res = await getWeeklyReport();
+
     /* Render */
     return (
-        <div className="container invisible lg:visible flex flex-wrap gap-8 p-4 ml-[10rem] mr-[10rem]">
+        <div className="container flex flex-wrap gap-8 p-4">
             <Card className="shadow-sm bg-white rounded-lg flex-grow">
                 <CardHeader>
                     <CardTitle>
@@ -76,6 +83,6 @@ const GameComponent = ({
             </Card>
         </div>
     );
-};
+}
 
 export default GameComponent;
