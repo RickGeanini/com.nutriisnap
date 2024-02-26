@@ -9,12 +9,7 @@ export default async function GamePage() {
     /* Render */
     return (
         <Suspense fallback={<LoadingGameComponent />}>
-            <GameComponent
-                isLoading={false}
-                healthy_meals={3}
-                total_meals={10}
-                unhealthy_meals={7}
-            />
+            <GameComponent />
         </Suspense>
     );
 }
