@@ -36,7 +36,7 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                     alt={meal.name}
                     className="rounded-lg m-4 object-cover"
                     height={160}
-                    src={meal.image}
+                    src={`data:image/jpeg;base64,${meal.picture_base_64}`}
                     width={420}
                 />
 

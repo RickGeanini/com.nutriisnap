@@ -1,30 +1,30 @@
 import { Citrus, Pizza, Utensils } from 'lucide-react';
 
 // COMPONENTS
-import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-async function getWeeklyReport() {
-    const res = await fetch(`${process.env.API_URL}/get_weekly_report`);
-    return res.json();
-}
+// INTERFACES
+import { IWeeklyReport } from '@/interfaces/weekly_report';
 
-// GAME COMPONENT UTILS
-interface IGameComponentProps {
-    healthy_meals: number;
-    isLoading?: boolean;
-    total_meals: number;
-    unhealthy_meals: number;
+async function getWeeklyReport() {
+    const res = await fetch(`${process.env.API_URL}/get_weekly_report`, {
+        cache: 'no-store',
+    });
+
+    if (res.ok) {
+        return res.json() as unknown as IWeeklyReport;
+    }
+
+    return {
+        healthy_meals: 0,
+        total_meals: 0,
+        unhealthy_meals: 0,
+    } as IWeeklyReport;
 }
 
 // GAME COMPONENT
-export async function GameComponent({
-    healthy_meals,
-    isLoading,
-    total_meals,
-    unhealthy_meals,
-}: IGameComponentProps) {
-    const res = await getWeeklyReport();
+export default async function GameComponent() {
+    const weeklyReport = await getWeeklyReport();
 
     /* Render */
     return (
@@ -32,34 +32,26 @@ export async function GameComponent({
             <Card className="shadow-sm bg-white rounded-lg flex-grow">
                 <CardHeader>
                     <CardTitle>
-                        {isLoading ? (
-                            <Skeleton className="bg-primary h-6 w-[120px]" />
-                        ) : (
-                            <div className="flex items-center">
-                                <Utensils />
-                                <div className="ml-4">Total de refeições:</div>
-                            </div>
-                        )}
+                        <div className="flex items-center">
+                            <Utensils />
+                            <div className="ml-4">Total de refeições:</div>
+                        </div>
                     </CardTitle>
                     <CardDescription className="text-2xl">
-                        {isLoading ? <Skeleton className="bg-primary h-6 w-10" /> : total_meals}
+                        {weeklyReport.total_meals}
                     </CardDescription>
                 </CardHeader>
             </Card>
             <Card className="shadow-sm bg-white rounded-lg flex-grow">
                 <CardHeader>
                     <CardTitle>
-                        {isLoading ? (
-                            <Skeleton className="bg-primary h-6 w-[190px]" />
-                        ) : (
-                            <div className="flex items-center">
-                                <Citrus />
-                                <div className="ml-4">Saudável</div>
-                            </div>
-                        )}
+                        <div className="flex items-center">
+                            <Citrus />
+                            <div className="ml-4">Saudável</div>
+                        </div>
                     </CardTitle>
                     <CardDescription className="text-2xl">
-                        {isLoading ? <Skeleton className="bg-primary h-6 w-10" /> : healthy_meals}
+                        {weeklyReport.healthy_meals}
                     </CardDescription>
                 </CardHeader>
             </Card>
@@ -67,22 +59,16 @@ export async function GameComponent({
             <Card className="shadow-sm bg-white rounded-lg flex-grow">
                 <CardHeader>
                     <CardTitle>
-                        {isLoading ? (
-                            <Skeleton className="bg-primary h-6 w-[250px]" />
-                        ) : (
-                            <div className="flex items-center">
-                                <Pizza />
-                                <div className="ml-4">Não saudável</div>
-                            </div>
-                        )}
+                        <div className="flex items-center">
+                            <Pizza />
+                            <div className="ml-4">Não saudável</div>
+                        </div>
                     </CardTitle>
                     <CardDescription className="text-2xl">
-                        {isLoading ? <Skeleton className="bg-primary h-6 w-10" /> : unhealthy_meals}
+                        {weeklyReport.unhealthy_meals}
                     </CardDescription>
                 </CardHeader>
             </Card>
         </div>
     );
 }
-
-export default GameComponent;

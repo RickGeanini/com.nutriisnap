@@ -4,17 +4,20 @@ import Image from 'next/image';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Drawer, DrawerTrigger } from '@/components/ui/drawer';
-// import MealDetailsComponent from '@/components/meals-list/details/MealDetails';
+import MealDetailsComponent from '@/components/meals-list/details/MealDetails';
 
 // INTERFACES
 import { IMeal } from '@/interfaces/meals';
 
 async function getMealsList(): Promise<IMeal[] | undefined> {
     const res = await fetch(
-        `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`
+        `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`,
+        {
+            cache: 'no-store',
+        }
     );
 
-    if (res.status === 200) {
+    if (res.ok) {
         return res.json() as unknown as IMeal[];
     }
 
@@ -40,7 +43,7 @@ export default async function MealsListComponent() {
                                     alt={meal.name}
                                     className="rounded-ss-lg rounded-se-lg object-cover"
                                     fill
-                                    src={`data:image/jpeg;base64,${meal.image}`}
+                                    src={`data:image/jpeg;base64,${meal.picture_base_64}`}
                                 />
                             </AspectRatio>
                         </CardHeader>
@@ -48,11 +51,13 @@ export default async function MealsListComponent() {
                             <p className="text-xl font-semibold text-wrap text-primary">
                                 {meal.name ?? meal.file_name}
                             </p>
-                            <small className="text-md text-secondary">{meal.calories} Kcal</small>
+                            <small className="text-md text-secondary">
+                                {meal.total_calories} Kcal
+                            </small>
                         </CardContent>
                     </Card>
                 </DrawerTrigger>
-                {/* <MealDetailsComponent meal={meal} /> */}
+                <MealDetailsComponent meal={meal} />
             </Drawer>
         );
     });
