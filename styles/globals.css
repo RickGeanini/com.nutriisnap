@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* verde claro  */
     --background: #F1F6F2
     --foreground: 119 11% 51%;
 
@@ -19,13 +20,15 @@
     --card: 132, 22%, 95%;
     --card-foreground: 119 11% 51%;
 
+    /* verde escuro  */
     --primary: 119 11% 51%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 30, 96%, 52%;
+    --secondary: 119 11% 51%;
     --secondary-foreground: 119 11% 51%;
 
-    --accent: 30, 96%, 52%;
+    /* laranja */
+    --accent: 30, 96%, 52%; 
     --accent-foreground: 119 11% 51%;
 
     --destructive: 0 100% 50%;
@@ -34,6 +37,8 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --white: rgb(255 255 255);
   }
 }
 

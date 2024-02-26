@@ -74,29 +74,24 @@ const NavigationMenuComponent = () => {
 
     const mobile: { title: string; href: string; description: string }[] = [
         {
-            title: 'Tailwind',
+            title: 'Android Studio Flamingo ',
             href: 'https://tailwindcss.com/',
-            description: 'Framework CSS modular e utilitário.',
+            description: 'IDE para desenvolvimento Android nativo',
         },
         {
-            title: 'Ui Shadcn',
+            title: 'Kotlin 1.8.20',
             href: 'https://ui.shadcn.com/',
-            description: 'Biblioteca UI',
+            description: 'Versão da linguagem utilizada para o desenvolvimento',
         },
         {
-            title: 'React 18',
+            title: 'Retrofit 2.9.0',
             href: 'https://react.dev/',
-            description: 'Nova versão do React com recursos avançados.',
+            description: 'Biblioteca utilizada para realizar as chamadas a API no padrão REST',
         },
         {
-            title: 'Next 14',
+            title: 'MVMM',
             href: 'https://nextjs.org/',
-            description: 'Framework React para renderização do lado do servidor.',
-        },
-        {
-            title: 'Typescript',
-            href: 'https://www.typescriptlang.org/',
-            description: 'Superset tipado do JavaScript.',
+            description: 'Padrão de arquitetura utilizado no desenvolvimento',
         },
     ];
 
@@ -104,7 +99,7 @@ const NavigationMenuComponent = () => {
     return (
         <div className="flex items-center justify-between bg-[#F1F6F2]">
             <NavigationMenu className="mr-1">
-                <div className="flex pl-[2rem] pt-[0.5rem] pb-[0.5rem] invisible lg:visible mr-4">
+                <div className="flex pl-[2rem] pt-[0.5rem] pb-[0.5rem] c">
                     <Image
                         src="/images/logo.png"
                         alt="icone"
@@ -170,7 +165,7 @@ const NavigationMenuComponent = () => {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            <div className="invisible lg:visible mr-8 cursor-pointer">
+            <div className="mr-8 cursor-pointer">
                 <Link href="/" legacyBehavior passHref>
                     <LogOut />
                 </Link>
@@ -183,7 +178,10 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
     ({ className, title, children, ...props }, ref) => {
         return (
             <li>
-                <NavigationMenuLink asChild>
+                <NavigationMenuLink
+                    asChild
+                    className="hover:bg-white active:bg-white focus:bg-white"
+                >
                     <a
                         ref={ref}
                         className={cn(
