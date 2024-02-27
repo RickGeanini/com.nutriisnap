@@ -9,7 +9,7 @@ import { IWeeklyReport } from '@/interfaces/weekly_report';
 async function getWeeklyReport() {
     try {
         const res = await fetch(`${process.env.API_URL}/get_weekly_report`, {
-            cache: 'no-store',
+            next: { revalidate: 3600 },
         });
 
         if (res.ok) {
