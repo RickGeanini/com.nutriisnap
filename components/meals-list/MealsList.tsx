@@ -12,8 +12,7 @@ import { IMeal } from '@/interfaces/meals';
 async function getMealsList(): Promise<IMeal[] | undefined> {
     try {
         const res = await fetch(
-            `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`,
-            { next: { revalidate: 3600 } }
+            `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`
         );
 
         if (res.ok) {
