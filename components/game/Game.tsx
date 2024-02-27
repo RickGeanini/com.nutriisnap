@@ -8,9 +8,7 @@ import { IWeeklyReport } from '@/interfaces/weekly_report';
 
 async function getWeeklyReport() {
     try {
-        const res = await fetch(`${process.env.API_URL}/get_weekly_report`, {
-            next: { revalidate: 3600 },
-        });
+        const res = await fetch(`${process.env.API_URL}/get_weekly_report`);
 
         if (res.ok) {
             return res.json() as unknown as IWeeklyReport;
