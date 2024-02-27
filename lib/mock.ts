@@ -79,7 +79,7 @@ export const generateRandomMealItem = (): IMeal => {
         is_healthy: randomIsHealthy,
         name: generateRandomName(),
         picture_base_64: randomImage,
-        total_calories: 1000,
+        total_calories: randomCalories,
         updated_at: generateRandomDate(),
     };
 };

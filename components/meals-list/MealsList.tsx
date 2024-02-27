@@ -9,7 +9,14 @@ import MealDetailsComponent from '@/components/meals-list/details/MealDetails';
 // INTERFACES
 import { IMeal } from '@/interfaces/meals';
 
+// UTILS
+import { generateRandomMealItem } from '@/lib/mock';
+
 async function getMealsList(): Promise<IMeal[] | undefined> {
+    const mock = Array.from(Array(12).keys()).map((_, index: number) => {
+        return generateRandomMealItem();
+    });
+
     try {
         const res = await fetch(
             `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`,
@@ -22,10 +29,10 @@ async function getMealsList(): Promise<IMeal[] | undefined> {
             return res.json() as unknown as IMeal[];
         }
 
-        return [];
+        return mock;
     } catch (error) {
         console.log({ error });
-        return [];
+        return mock;
     }
 }
 
