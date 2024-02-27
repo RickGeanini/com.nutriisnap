@@ -7,12 +7,16 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 import { IWeeklyReport } from '@/interfaces/weekly_report';
 
 async function getWeeklyReport() {
-    const res = await fetch(`${process.env.API_URL}/get_weekly_report`, {
-        cache: 'no-store',
-    });
+    try {
+        const res = await fetch(`${process.env.API_URL}/get_weekly_report`, {
+            cache: 'no-store',
+        });
 
-    if (res.ok) {
-        return res.json() as unknown as IWeeklyReport;
+        if (res.ok) {
+            return res.json() as unknown as IWeeklyReport;
+        }
+    } catch (error) {
+        console.log({ error });
     }
 
     return {

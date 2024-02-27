@@ -10,18 +10,23 @@ import MealDetailsComponent from '@/components/meals-list/details/MealDetails';
 import { IMeal } from '@/interfaces/meals';
 
 async function getMealsList(): Promise<IMeal[] | undefined> {
-    const res = await fetch(
-        `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`,
-        {
-            cache: 'no-store',
+    try {
+        const res = await fetch(
+            `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`,
+            {
+                cache: 'no-store',
+            }
+        );
+
+        if (res.ok) {
+            return res.json() as unknown as IMeal[];
         }
-    );
 
-    if (res.ok) {
-        return res.json() as unknown as IMeal[];
+        return [];
+    } catch (error) {
+        console.log({ error });
+        return [];
     }
-
-    return [];
 }
 
 // MealsList
