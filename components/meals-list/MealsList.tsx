@@ -12,7 +12,10 @@ import { IMeal } from '@/interfaces/meals';
 async function getMealsList(): Promise<IMeal[] | undefined> {
     try {
         const res = await fetch(
-            `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`
+            `${process.env.API_URL}/get_meals_list?client_uuid=${process.env.CLIENT_UUID}`,
+            {
+                cache: 'no-store',
+            }
         );
 
         if (res.ok) {
