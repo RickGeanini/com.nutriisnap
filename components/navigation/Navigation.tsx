@@ -102,11 +102,11 @@ const NavigationMenuComponent = () => {
             <NavigationMenu className="mr-1">
                 <div className={styles.logo}>
                     <Image
-                        src="/images/logo.png"
                         alt="icone"
-                        width={45}
                         height={45}
                         loading="lazy"
+                        src="/images/logo.png"
+                        width={45}
                     />
                 </div>
                 <NavigationMenuList>
