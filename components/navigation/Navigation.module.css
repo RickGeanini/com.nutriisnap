@@ -1,0 +1,19 @@
+/* styles.css */
+.logo {
+    margin: 0.5rem 0 0.5rem 1rem;
+}
+
+.logout {
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    .logo {
+        display: none;
+    }
+
+    .logout {
+        display: none;
+    }
+}

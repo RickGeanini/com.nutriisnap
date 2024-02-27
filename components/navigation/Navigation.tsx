@@ -4,6 +4,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LogOut } from 'lucide-react';
+import styles from './Navigation.module.css';
 
 // COMPONENTS
 import {
@@ -99,7 +100,7 @@ const NavigationMenuComponent = () => {
     return (
         <div className="flex items-center justify-between bg-[#F1F6F2]">
             <NavigationMenu className="mr-1">
-                <div className="flex pl-[2rem] pt-[0.5rem] pb-[0.5rem] c">
+                <div className={styles.logo}>
                     <Image
                         src="/images/logo.png"
                         alt="icone"
@@ -165,7 +166,7 @@ const NavigationMenuComponent = () => {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            <div className="mr-8 cursor-pointer">
+            <div className={styles.logout}>
                 <Link href="/" legacyBehavior passHref>
                     <LogOut />
                 </Link>
