@@ -20,7 +20,9 @@ async function getWeeklyReport() {
     }
 
     return {
+        average_calories: 0,
         healthy_meals: 0,
+        total_calories: 0,
         total_meals: 0,
         unhealthy_meals: 0,
     } as IWeeklyReport;
