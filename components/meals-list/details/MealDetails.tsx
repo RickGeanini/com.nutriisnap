@@ -12,9 +12,6 @@ import { Separator } from '@/components/ui/separator';
 // INTERFACES
 import { IMeal } from '@/interfaces/meals';
 
-// STYLES
-import styles from './MealDetails.module.css';
-
 // UTILS
 import { formateToBr } from '@/lib/date';
 
@@ -97,7 +94,7 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
     return (
         <>
             {mobile ? (
-                <DrawerContent className={styles.mobile}>
+                <DrawerContent className="bg-white flex items-center justify-center pr-[1rem] pl-[1rem]">
                     <Image
                         alt={meal.name}
                         className="rounded-lg m-4 object-cover"
@@ -108,10 +105,10 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                     {renderPanel}
                 </DrawerContent>
             ) : (
-                <DrawerContent className={styles.desktop}>
+                <DrawerContent className="bg-white flex items-center justify-center pr-[10rem] pl-[10rem]">
                     <ResizablePanelGroup
                         direction="horizontal"
-                        className="bg-white rounded-lg mt-2"
+                        className="bg-white rounded-lg mt-4"
                     >
                         <ResizablePanel>
                             <Image
