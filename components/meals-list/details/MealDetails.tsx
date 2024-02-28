@@ -45,7 +45,7 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
     );
 
     const renderPanel = (
-        <div className="p-4 flex flex-col gap-2">
+        <div className="flex flex-col gap-2 p-4">
             <ResizablePanelGroup direction="horizontal">
                 <ResizablePanel>
                     <div className="space-y-1">
@@ -94,15 +94,17 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
     return (
         <>
             {mobile ? (
-                <DrawerContent className="bg-white flex items-center justify-center pr-[1rem] pl-[1rem]">
-                    <Image
-                        alt={meal.name}
-                        className="rounded-lg m-4 object-cover"
-                        height={160}
-                        src={`data:image/jpeg;base64,${meal.picture_base_64}`}
-                        width={420}
-                    />
-                    {renderPanel}
+                <DrawerContent className="bg-white flex items-center justify-center">
+                    <div className="overflow-x-auto h-[80vh] relative pr-[1rem] pl-[1rem] pb-4 mt-4">
+                        <Image
+                            alt={meal.name}
+                            className="rounded-lg m-4 object-cover"
+                            height={150}
+                            src={`data:image/jpeg;base64,${meal.picture_base_64}`}
+                            width={370}
+                        />
+                        {renderPanel}
+                    </div>
                 </DrawerContent>
             ) : (
                 <DrawerContent className="bg-white flex items-center justify-center pr-[10rem] pl-[10rem]">
