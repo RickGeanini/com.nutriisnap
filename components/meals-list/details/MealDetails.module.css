@@ -1,0 +1,28 @@
+/* styles.css */
+.desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10rem;
+    background-color: white;
+}
+
+.mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    background-color: white;
+}
+
+@media screen and (max-width: 800px) {
+    .desktop {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .mobile {
+        display: none;
+    }
+}

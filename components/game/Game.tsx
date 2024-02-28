@@ -1,4 +1,4 @@
-import { Citrus, Pizza, Utensils } from 'lucide-react';
+import { Citrus, Utensils, Trash2 } from 'lucide-react';
 
 // COMPONENTS
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -64,7 +64,7 @@ export default async function GameComponent() {
                 <CardHeader>
                     <CardTitle>
                         <div className="flex items-center">
-                            <Pizza />
+                            <Trash2 />
                             <div className="ml-4">Não saudável</div>
                         </div>
                     </CardTitle>
