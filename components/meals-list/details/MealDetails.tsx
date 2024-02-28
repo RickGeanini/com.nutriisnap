@@ -22,7 +22,7 @@ interface IMealDetailsComponentProps {
 // MEAL DETAILS COMPONENT
 const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
     /* Vars */
-    const mobile = useMediaQuery('(max-width: 768px)');
+    const isMobile = useMediaQuery('(max-width: 768px)');
 
     /* Utils */
     const renderedIngredients = (
@@ -90,43 +90,44 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
         </div>
     );
 
+    const renderedDrawerContent = isMobile ? (
+        <div className="overflow-x-auto h-[80vh] relative pr-[1rem] pl-[1rem] pb-4 mt-4">
+            <div className="relative grid min-h-[300px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+                <Image
+                    alt={meal.name}
+                    className="object-cover object-center w-full h-96"
+                    src={`data:image/jpeg;base64,${meal.picture_base_64}`}
+                    fill
+                />
+            </div>
+
+            {renderPanel}
+        </div>
+    ) : (
+        <ResizablePanelGroup direction="horizontal" className="bg-white rounded-lg mt-4">
+            <ResizablePanel>
+                <Image
+                    alt={meal.name}
+                    className="rounded-lg m-4 object-cover"
+                    height={160}
+                    src={`data:image/jpeg;base64,${meal.picture_base_64}`}
+                    width={420}
+                />
+            </ResizablePanel>
+            <ResizableHandle withHandle />
+            <ResizablePanel>{renderPanel}</ResizablePanel>
+        </ResizablePanelGroup>
+    );
+
     /* Render */
     return (
-        <>
-            {mobile ? (
-                <DrawerContent className="bg-white flex items-center justify-center">
-                    <div className="overflow-x-auto h-[80vh] relative pr-[1rem] pl-[1rem] pb-4 mt-4">
-                        <Image
-                            alt={meal.name}
-                            className="rounded-lg m-4 object-cover"
-                            height={150}
-                            src={`data:image/jpeg;base64,${meal.picture_base_64}`}
-                            width={370}
-                        />
-                        {renderPanel}
-                    </div>
-                </DrawerContent>
-            ) : (
-                <DrawerContent className="bg-white flex items-center justify-center pr-[10rem] pl-[10rem]">
-                    <ResizablePanelGroup
-                        direction="horizontal"
-                        className="bg-white rounded-lg mt-4"
-                    >
-                        <ResizablePanel>
-                            <Image
-                                alt={meal.name}
-                                className="rounded-lg m-4 object-cover"
-                                height={160}
-                                src={`data:image/jpeg;base64,${meal.picture_base_64}`}
-                                width={420}
-                            />
-                        </ResizablePanel>
-                        <ResizableHandle withHandle />
-                        <ResizablePanel>{renderPanel}</ResizablePanel>
-                    </ResizablePanelGroup>
-                </DrawerContent>
-            )}
-        </>
+        <DrawerContent
+            className={`bg-white flex items-center justify-center ${
+                !isMobile ? 'pr-[10rem] pl-[10rem]' : ''
+            }`}
+        >
+            {renderedDrawerContent}
+        </DrawerContent>
     );
 };
 export default MealDetailsComponent;
