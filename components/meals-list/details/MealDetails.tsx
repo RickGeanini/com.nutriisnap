@@ -77,11 +77,13 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                     <h3 className="text-1xl text-primary ml-2">É saudável?</h3>
                     <div className="space-y-1 ml-2">
                         {meal.is_healthy ? (
-                            <div className="flex text-sm mt-2">Sim.</div>
+                            <div className="flex text-sm mt-2">
+                                Sim. Você é quase um Paulo Muzzy, quase...
+                            </div>
                         ) : (
                             <div className="flex text-sm mt-2">
                                 Não, nossa IA entende que sua alimentação parece um catálogo de
-                                produtos químicos.
+                                produtos químicos. Você é um lixo, igual ao que tá comendo!
                             </div>
                         )}
                     </div>

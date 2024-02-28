@@ -10,12 +10,12 @@ import MealDetailsComponent from '@/components/meals-list/details/MealDetails';
 import { IMeal } from '@/interfaces/meals';
 
 // UTILS
-import { generateRandomMealItem } from '@/lib/mock';
+// import { generateRandomMealItem } from '@/lib/mock';
 
 async function getMealsList(): Promise<IMeal[] | undefined> {
-    const mock = Array.from(Array(12).keys()).map((_, index: number) => {
-        return generateRandomMealItem();
-    });
+    // const mock = Array.from(Array(12).keys()).map((_, index: number) => {
+    //     return generateRandomMealItem();
+    // });
 
     try {
         const res = await fetch(
@@ -29,10 +29,10 @@ async function getMealsList(): Promise<IMeal[] | undefined> {
             return res.json() as unknown as IMeal[];
         }
 
-        return mock;
+        return [];
     } catch (error) {
         console.log({ error });
-        return mock;
+        return [];
     }
 }
 
