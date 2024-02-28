@@ -37,8 +37,7 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                 })
             ) : (
                 <span className="flex text-sm">
-                    Houve um erro. Parece que você tentou entrar onde não foi convidado. Tente ser
-                    mais VIP na próxima vez.
+                    Houve um erro. A IA decidiu interpretar 'precisão' como um conceito opcional.
                 </span>
             )}
         </div>
@@ -82,8 +81,8 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                             </div>
                         ) : (
                             <div className="flex text-sm mt-2">
-                                Não, nossa IA entende que sua alimentação parece um catálogo de
-                                produtos químicos. Você é um lixo, igual ao que tá comendo!
+                                Não, parece um catálogo de produto químico. Você é um lixo, igual ao
+                                que tá comendo!
                             </div>
                         )}
                     </div>
