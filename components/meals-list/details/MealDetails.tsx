@@ -75,10 +75,10 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                 <ResizablePanel>
                     <h3 className="text-1xl text-primary ml-2">É saudável?</h3>
                     <div className="space-y-1 ml-2">
-                        
-                    <div className="flex text-sm mt-2">
-                        {meal.comment}
-                    </div>
+                        <div className="text-sm mt-2">
+                            <p>{meal.is_healthy ? 'Sim' : 'Não'}.</p>
+                            <p>{meal.comment}</p>
+                        </div>
                         {/* {meal.is_healthy ? (
                             <div className="flex text-sm mt-2">
                                 Sim. Você é quase um Paulo Muzzy, quase...
