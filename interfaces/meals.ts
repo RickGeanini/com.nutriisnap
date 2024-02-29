@@ -1,4 +1,5 @@
 export interface IMeal {
+    comment?: string;
     created_at: string;
     deleted_at?: null | string;
     file_name: string;
