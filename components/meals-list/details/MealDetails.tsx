@@ -27,7 +27,11 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
     /* Utils */
     const renderedIngredients = (
         <div>
-            {meal.ingredients.length > 1 ? (
+            {meal.ingredients.length === 0 ? (
+                <span className="flex text-sm">
+                    Houve um erro. A IA decidiu interpretar 'precisão' como um conceito opcional.
+                </span>
+            ) : (
                 meal.ingredients.map((ingredient, key) => {
                     return (
                         <div className="flex text-sm mt-2" key={key}>
@@ -35,10 +39,6 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                         </div>
                     );
                 })
-            ) : (
-                <span className="flex text-sm">
-                    Houve um erro. A IA decidiu interpretar 'precisão' como um conceito opcional.
-                </span>
             )}
         </div>
     );
