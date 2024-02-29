@@ -79,15 +79,6 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                             <p>{meal.is_healthy ? 'Sim' : 'Não'}.</p>
                             <p>{meal.comment}</p>
                         </div>
-                        {/* {meal.is_healthy ? (
-                            <div className="flex text-sm mt-2">
-                                Sim. Você é quase um Paulo Muzzy, quase...
-                            </div>
-                        ) : (
-                            <div className="flex text-sm mt-2">
-                                Não. Você é um lixo, igual ao que tá comendo!
-                            </div>
-                        )} */}
                     </div>
                 </ResizablePanel>
             </ResizablePanelGroup>
