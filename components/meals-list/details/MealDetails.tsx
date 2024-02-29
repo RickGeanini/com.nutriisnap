@@ -81,8 +81,7 @@ const MealDetailsComponent = ({ meal }: IMealDetailsComponentProps) => {
                             </div>
                         ) : (
                             <div className="flex text-sm mt-2">
-                                Não, parece um catálogo de produto químico. Você é um lixo, igual ao
-                                que tá comendo!
+                                Não. Você é um lixo, igual ao que tá comendo!
                             </div>
                         )}
                     </div>
